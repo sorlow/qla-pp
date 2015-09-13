@@ -1,0 +1,36 @@
+{
+  "name": "qla-pp",
+  "version": "0.0.0",
+  "homepage": "http://qualitylifeassistant.com",
+  "description": "QLA Product Page",
+  "main": "index.html",
+  "moduleType": [
+    "amd",
+    "es6"
+  ],
+  "authors": [
+    "Sewer Orłow <sewer.orlow@gmail.com>"
+  ],
+  "private": true,
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "fullpage.js": "~2.7.1",
+    "normalize-css": "normalize.css#~3.0.3",
+    "requirejs": "~2.1.20"
+  },
+  "bowerMove": {
+    "requirejs": {
+      "require.js": "public/libs"
+    },
+    "jquery": {
+      "dist/jquery.min.js": "public/libs/jquery"
+    }
+  }
+}

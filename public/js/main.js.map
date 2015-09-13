@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.js"],"names":[],"mappings":";;AAAA,OAAO,CAAC,CAAC,QAAQ,CAAC,EAAE,UAAS,CAAC,EAAE;AAC5B,KAAC,CAAC,MAAM,CAAC,CAAC,MAAM,CAAC,aAAa,CAAC,CAAC;CACnC,CAAC,CAAC","file":"main.js","sourcesContent":["require(['jquery'], function($) {\n    $(\"body\").append('It works :)');\n});"],"sourceRoot":"/source/"}
