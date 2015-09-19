@@ -1,13 +1,8 @@
 require.config({
-    baseUrl: "js",
-    optimize: "uglify",
+    baseUrl: 'js/',
     waitSeconds: 10,
-    packages: [
-        {
-            name: 'jquery',
-            location: '../libs/jquery',
-            main: 'jquery.min'
-        }
-    ],
-    deps: ["main"]
+    paths: {
+        'jquery': '../libs/jquery.min'
+    },
+    deps: ['main']
 });

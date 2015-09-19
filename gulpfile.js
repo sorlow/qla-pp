@@ -3,16 +3,20 @@ var sass = require('gulp-sass');
 var minifycss = require('gulp-minify-css');
 var sourcemaps = require('gulp-sourcemaps');
 var babel = require('gulp-babel');
+var requirejsOptimize = require('gulp-requirejs-optimize');
 var concat = require('gulp-concat');
 var del = require('del');
 var browserSync = require('browser-sync').create();
 
 // Clening public folder
+gulp.task('cleanLibs', function () {
+    return del(['public/libs/*']);
+});
 gulp.task('cleanCss', function () {
-    return del(['build/css', 'public/css']);
+    return del(['public/.tmp/*', 'public/css/*']);
 });
 gulp.task('cleanJs', function () {
-    return del(['public/js']);
+    return del(['public/.tmp/*', 'public/js/*']);
 });
 
 // Compiles sass files along with source maps
@@ -21,7 +25,7 @@ gulp.task('sass', function () {
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('build/css'));
+        .pipe(gulp.dest('public/.tmp'));
 });
 
 // Compiles js files along with source maps
@@ -30,7 +34,19 @@ gulp.task('babelJs', function () {
         .pipe(sourcemaps.init())
         .pipe(babel())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('public/js'))
+        .pipe(gulp.dest('public/.tmp'))
+        .pipe(browserSync.stream());
+});
+
+// Copy libraries
+gulp.task('copyLibs', ['cleanLibs'], function () {
+    return gulp.src([
+            'bower_components/requirejs/require.js',
+            'bower_components/jquery/dist/jquery{,*}.{js,map}',
+            'bower_components/fullpage.js/*.{css,js}',
+            'bower_components/normalize-css/normalize.css'
+        ])
+        .pipe(gulp.dest('public/libs'))
         .pipe(browserSync.stream());
 });
 
@@ -44,14 +60,33 @@ gulp.task('copyIndex', function () {
 // Concatinating css files
 gulp.task('concatCss', ['cleanCss', 'sass'], function () {
     return gulp.src([
-        'bower_components/normalize-css/normalize.css',
-        'build/css/*.css'
+        'public/libs/normalize.css',
+        'public/.tmp/*.css'
     ])
         .pipe(sourcemaps.init())
         .pipe(concat('main.css'))
         .pipe(minifycss())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('public/css'))
+        .pipe(browserSync.stream());
+});
+
+// Concatinating js files
+gulp.task('requireJs', ['cleanJs', 'babelJs'], function () {
+    return gulp.src('public/.tmp/**/*.js')
+        .pipe(sourcemaps.init())
+        .pipe(requirejsOptimize({
+            baseUrl: "public/.tmp",
+            mainConfigFile: "public/.tmp/config.js",
+            name: "main",
+            out: "main.js",
+            optimize: "uglify2",
+            generateSourceMaps: true,
+            preserveLicenseComments: false,
+            useSourceUrl: true
+        }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('public/js'))
         .pipe(browserSync.stream());
 });
 
@@ -68,7 +103,8 @@ gulp.task('server', function () {
     // do the same with the sass files
     gulp.watch('src/css/**/*.sass', ['concatCss']);
     // and js files
-    gulp.watch('src/js/**/*.js', ['babelJs']);
+    gulp.watch('src/js/**/*.js', ['requireJs']);
 });
 
+gulp.task('build', ['copyLibs', 'copyIndex', 'concatCss', 'requireJs']);
 gulp.task('default', ['server']);

@@ -1,3 +1,7 @@
 require(['jquery'], function($) {
-    $("body").append('It works :)');
+    $("body").append('<br><br>App launched :)');
+
+
+    console.log('Test');
+    console.log('Test2');
 });

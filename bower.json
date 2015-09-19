@@ -24,13 +24,5 @@
     "fullpage.js": "~2.7.1",
     "normalize-css": "normalize.css#~3.0.3",
     "requirejs": "~2.1.20"
-  },
-  "bowerMove": {
-    "requirejs": {
-      "require.js": "public/libs"
-    },
-    "jquery": {
-      "dist/jquery.min.js": "public/libs/jquery"
-    }
   }
 }
