@@ -1,0 +1,133 @@
+$nav-buttons-border-color: #cbcbcb
+
+// Navbar
+
+#navbar
+    min-width: $body-min-width
+    text-transform: uppercase
+    border-bottom: 1px solid #515253
+
+    +media-breakpoint-up(sm)
+        padding: 1.5rem 3rem 2rem
+
+    +media-breakpoint-down(sm)
+        height: $mobile-navbar-height
+        padding-top: .5rem
+        padding-bottom: 0
+        background-color: #fff !important;
+        border-color: #fff !important
+
+    .fp-viewing-features &
+        border-color: #3F495A
+
+
+// Logo
+
+#logo
+    $logo-height: 45px
+
+    width: 130px
+    height: $logo-height
+    overflow: hidden
+    margin-bottom: .5rem
+
+    +media-breakpoint-up(sm)
+        margin-right: 3rem
+
+    +media-breakpoint-down(sm)
+        float: none
+        display: inline-block
+        margin: 0
+        padding: 0
+
+        img
+            margin-top: -$logo-height
+
+
+// Sidebar
+
+#sidebar
+    position: relative
+
+    +media-breakpoint-down(sm)
+        position: fixed
+        left: 0
+        top: 0
+        bottom: 0
+        width: 21rem
+        background-color: $sidebar-bg
+
+
+// Nav buttons
+
+.nav-buttons
+    position: absolute
+    width: $mobile-navbar-height;
+    height: $mobile-navbar-height;
+    margin: 0
+    padding: 0
+    border: solid $nav-buttons-border-color
+    border-width: 0 1px 0 0
+    background-color: #fff
+    color: #000
+
+#close-button
+    @extend .nav-buttons
+    right: -$mobile-navbar-height
+    font-size: 4rem
+
+#menu-button
+    @extend .nav-buttons
+    left: 0
+    top: 0
+    font-size: 2rem
+
+
+// Menu
+
+#menu
+    font-weight: 500
+
+    li
+        &.active, &:hover
+            a
+                position: relative
+
+                &:before
+                    content: ''
+                    position: absolute
+                    bottom: 0
+                    border-bottom: 2px solid $link-color
+                    width: 1.5rem
+
+                &:hover:before
+                    border-color: $link-hover-color
+
+    +media-breakpoint-up(md)
+        float: left
+        margin-top: .75rem
+
+    +media-breakpoint-up(lg)
+        li
+            margin-right: 1rem
+
+    +media-breakpoint-down(sm)
+        margin-bottom: 2rem
+
+        li
+            float: none
+            padding: 1rem
+            border-bottom: 1px solid $sidebar-border-color
+
+
+// Menu buttons
+
+#buttons
+    margin-top: .75rem
+
+    +media-breakpoint-up(md)
+        float: right
+
+    +media-breakpoint-down(md)
+        .btn
+            margin-bottom: 1rem

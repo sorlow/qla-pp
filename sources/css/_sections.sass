@@ -1,0 +1,49 @@
+$mouse-separator: 6rem
+
+.section
+    display: table
+    width: 100%
+
+    & > .container-fluid
+        display: table-cell
+        vertical-align: middle
+        padding-top: $navbar-height;
+        width: 100%
+        height: 100%
+
+        +media-breakpoint-down(sm)
+            padding-top: $mobile-navbar-height;
+
+    &.with-mouse > .container-fluid
+        padding-bottom: $mouse-separator + 5
+
+.section[data-anchor="home"]
+    background: url(../images/background-first-page.jpg) 50% 0/cover no-repeat
+
+    .container-fluid
+        background: $primary-cover
+        font-size: 1.575rem
+
+        h1
+            font-size: 2.15rem
+            margin-bottom: 4.64rem
+
+
+.section[data-anchor="features"]
+    background: url(../images/background-last-page.jpg) 50% 0/cover no-repeat
+
+    .container-fluid
+        background: $secondary-cover
+
+
+.mouse
+    position: absolute
+    bottom: 5rem
+    right: 0
+    left: 0
+    width: 16rem
+
+    .icon-mouse
+        float: left
+        margin: -2.5rem -1rem 0 0
+        font-size: $mouse-separator
