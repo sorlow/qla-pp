@@ -147,4 +147,4 @@ gulp.task('server', function () {
 gulp.task('build', ['copyLibs'], function () {
     gulp.start('copyIndex', 'copyImages', 'copyFonts', 'concatCss', 'requireJs');
 });
-gulp.task('default', ['watch']);
+gulp.task('default', ['server']);

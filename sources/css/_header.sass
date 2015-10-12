@@ -1,4 +1,5 @@
 $nav-buttons-border-color: #cbcbcb
+$logo-height: 45px
 
 // Navbar
 
@@ -17,15 +18,29 @@ $nav-buttons-border-color: #cbcbcb
         background-color: #fff !important;
         border-color: #fff !important
 
+    .fp-viewing-what-is-qla &,
+    .fp-viewing-benefits &,
+    .fp-viewing-technology &
+        background-color: rgba(#fff, .3)
+        border-color: #D4D4D4
+
+    .fp-viewing-technology &
+        background-color: rgba($body-bg, .8)
+
+    .fp-viewing-what-you-can-achive &
+        border-color: #78AADC
+
     .fp-viewing-features &
         border-color: #3F495A
 
 
 // Logo
 
-#logo
-    $logo-height: 45px
+=invert-logo()
+    img
+        margin-top: -$logo-height
 
+#logo
     width: 130px
     height: $logo-height
     overflow: hidden
@@ -40,9 +55,13 @@ $nav-buttons-border-color: #cbcbcb
         margin: 0
         padding: 0
 
-        img
-            margin-top: -$logo-height
+        +invert-logo()
 
+    +media-breakpoint-up(sm)
+        .fp-viewing-what-is-qla &,
+        .fp-viewing-benefits &,
+        .fp-viewing-technology &
+            +invert-logo()
 
 // Sidebar
 
@@ -119,6 +138,25 @@ $nav-buttons-border-color: #cbcbcb
             padding: 1rem
             border-bottom: 1px solid $sidebar-border-color
 
+    .fp-viewing-what-is-qla &,
+    .fp-viewing-benefits &,
+    .fp-viewing-technology &
+        li
+            a
+                color: $invert-link-color
+
+            &:hover
+                a
+                    color: $invert-link-hover-color
+
+            &.active, &:hover
+                a
+                    &:before
+                        border-color: $invert-link-color
+
+                    &:hover:before
+                        border-color: $invert-link-hover-color
+
 
 // Menu buttons
 
@@ -131,3 +169,20 @@ $nav-buttons-border-color: #cbcbcb
     +media-breakpoint-down(md)
         .btn
             margin-bottom: 1rem
+
+    .btn-primary-outline
+        &:hover, &:active, &:focus
+            background: none
+            color: $link-hover-color;
+            border-color: $link-hover-color;
+
+        .fp-viewing-what-is-qla &,
+        .fp-viewing-benefits &,
+        .fp-viewing-technology &
+            color: $invert-link-color
+            border-color: $invert-link-color
+
+            &:hover, &:active, &:focus
+                background: none
+                color: $invert-link-hover-color;
+                border-color: $invert-link-hover-color;
