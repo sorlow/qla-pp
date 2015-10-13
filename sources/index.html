@@ -26,10 +26,11 @@
     <meta name="theme-color" content="#ffffff">
 
     <script data-main="/js/main" src="/libs/require.js" async></script>
+</head>
 <body>
     <header>
         <nav id="navbar" class="navbar navbar-fixed-top navbar-light text-xs-center text-sm-center">
-            <button id="menu-button" class="pull-left hidden-md-up" data-toggle="collapse" data-target="#sidebar">
+            <button id="menu-button" class="pull-left hidden-md-up" data-hook="collapse" data-target="#navigation">
                 <i class="icon-menu"></i>
             </button>
 
@@ -37,8 +38,8 @@
                 <img src="/images/logo.png" class="img-responsive" alt="Quality Life Assistant">
             </a>
 
-            <div id="sidebar" class="collapse navbar-toggleable-sm">
-                <button id="close-button" class="hidden-md-up" data-toggle="collapse" data-target="#sidebar">
+            <div id="navigation" class="collapse navigation navbar-toggleable-sm animated slideInLeft">
+                <button id="close-button" class="hidden-md-up" data-hook="collapse" data-target="#navigation">
                     <i class="icon-close center-block"></i>
                 </button>
 
@@ -60,16 +61,31 @@
                     </li>
                 </ul>
 
-                <div id="buttons">
+                <div id="buttons" data-hook="collapse" data-target="#contact-sidebar">
                     <button type="button" class="btn btn-primary-outline">Contact Us</button>
                 </div>
             </div>
         </nav>
+
+        <aside id="contact-sidebar" class="collapse sidebar navbar-toggleable animated slideInRight">
+            <button class="btn btn-link close" data-hook="collapse" data-target="#contact-sidebar">
+                <i class="icon-close center-block"></i>
+            </button>
+
+            <div class="container-fluid">
+                <address>
+                    <strong>MIKOMP</strong><br>
+                    (+48) 17 85 25 295<br>
+                    <a href="mailto:qla@mikomp.pl" class="text-primary">qla@mikomp.pl</a><br>
+                    <a href="http://www.mikomp.pl" class="text-primary">www.mikomp.pl</a>
+                </address>
+            </div>
+        </aside>
     </header>
     <main id="fullpage">
         <div class="section with-mouse active" data-anchor="home">
             <section class="container-fluid">
-                <div class="row">
+                <div class="handle row">
                     <div class="col-sm-2">
                     </div>
                     <div class="col-sm-7 text-uppercase">
@@ -84,18 +100,60 @@
                     </div>
                 </div>
 
-                <button class="btn btn-link center-block mouse text-uppercase hidden-sm-down disabled"><i class="icon-mouse"></i> Scroll down</button>
+                <a href="#what-is-qla" class="btn btn-link center-block mouse text-uppercase">
+                    <span class="hidden-sm-down">
+                        <i class="icon-mouse"></i> Scroll down
+                    </span>
+                    <span class="hidden-md-up">
+                        <i class="icon-arrow-down"></i>
+                    </span>
+                </a>
             </section>
         </div>
         <div class="section" data-anchor="what-is-qla">
             <section class="container-fluid">
-
-                <img src="/images/mockups/mobile.png" class="mockup" alt="Sample preview of QLA application on mobile">
+                <div class="handle row">
+                    <div class="col-xs-5 col-sm-7 col-md-5">
+                        <img src="/images/mockups/mobile.png" class="mockup center-block" alt="Sample preview of QLA application on mobile">
+                    </div>
+                    <div class="col-xs-7 col-sm-5 col-md-3">
+                        <div class="holder">
+                            <h2 class="text-uppercase">What is<br> QLA?</h2>
+                        </div>
+                        <p class="m-b-lg">Quality Life Assistant is an integrated family of web-based applications that support the entire process of Agency information management. Leveraging connectivity, interactivity and speed, Quality Life Assistant is the first of its kind</p>
+                        <button class="btn btn-success text-uppercase radius" data-hook="collapse" data-target="#what-is-qla-sidebar">Read more</button>
+                    </div>
+                    <div class="col-md-3 hidden-sm-down">
+                        <div class="holder"></div>
+                        <p>offering efficiency, accuracy, time savings, and positive environmental impact in the area of individual information management for Community Based Organizations that provide services for people with disabilities.</p>
+                    </div>
+                </div>
             </section>
         </div>
         <div class="section" data-anchor="benefits">
             <section class="container-fluid">
-
+                <div class="handle row">
+                    <div class="col-xs-1 col-sm-3 col-md-5">
+                        <div class="diagram hidden-sm-down">
+                            <span class="top right"><i class="icon-tactick"></i></span>
+                            <span class="bottom right"><i class="icon-clock"></i></span>
+                            <span class="bottom left"><i class="icon-light"></i></span>
+                            <span class="top left"><i class="icon-settings"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-7 col-sm-5 col-md-3">
+                        <div class="holder">
+                            <h2 class="text-uppercase">Benefits<br> to Your<br> organization?</h2>
+                        </div>
+                        <p class="m-b-lg">Quality Life Assistant connects all levels of service delivery including front line support, management, core support team and the funding agent.</p>
+                        <a href="#what-you-can-achive" class="btn btn-info text-uppercase radius">
+                            Read more
+                            <span class="arrow-down"></span>
+                        </a>
+                    </div>
+                    <div class="col-md-3 hidden-sm-down">
+                    </div>
+                </div>
             </section>
         </div>
         <div class="section" data-anchor="what-you-can-achive">
@@ -113,5 +171,29 @@
             </section>
         </div>
     </main>
+
+    <aside id="what-is-qla-sidebar" class="collapse sidebar navbar-toggleable animated slideInRight">
+        <button class="btn btn-link close" data-hook="collapse" data-target="#what-is-qla-sidebar">
+            <i class="icon-close center-block"></i>
+        </button>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="m-b-lg">What is Quality Life Assistant?</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Quality Life Assistant is an integrated family of web-based applications that support the entire process of Agency information management.</p>
+                    <p>Leveraging connectivity, interactivity and speed, Quality Life Assistant is the first of its kind, offering efficiency, accuracy, time savings, and positive environmental impact in the area of individual information management for Community Based Organizations that provide services for people with disabilities.</p>
+                </div>
+                <div class="col-sm-6">
+                    <p>Quality Life Assistant utilizes leading edge technology to assist each Agency (CBO) or any service provider to optimize information management through easy and efficient data collection, analysis, and measurement of service delivery outcomes.</p>
+                    <p>This is achieved through reengineering, digitization and automation of paper-based processes.</p>
+                </div>
+            </div>
+        </div>
+    </aside>
 </body>
 </html>

@@ -89,7 +89,7 @@ gulp.task('copyFonts', ['cleanFonts'], function () {
 });
 
 // Concatinating css files
-gulp.task('concatCss', ['cleanCss', 'sass'], function () {
+gulp.task('concatCss', ['sass'], function () {
     return gulp.src([
         'sources/css/fonts/icomoon.css',
         'public/.tmp/*.css',
@@ -105,7 +105,7 @@ gulp.task('concatCss', ['cleanCss', 'sass'], function () {
 });
 
 // Concatinating js files
-gulp.task('requireJs', ['cleanJs', 'babelJs'], function () {
+gulp.task('requireJs', ['babelJs'], function () {
     return gulp.src('public/.tmp/**/*.js')
         .pipe(sourcemaps.init())
         .pipe(requirejsOptimize({

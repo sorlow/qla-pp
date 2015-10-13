@@ -14,6 +14,10 @@ $mouse-separator: 6rem
         +media-breakpoint-down(sm)
             padding-top: $mobile-navbar-height;
 
+        & > .handle
+            max-width: 1280px
+            margin: 0 auto;
+
     &.with-mouse > .container-fluid
         padding-bottom: $mouse-separator + 5
 
@@ -23,16 +27,98 @@ $mouse-separator: 6rem
     .container-fluid
         background: $primary-cover
         font-size: 1.575rem
+        color: $invert-body-color
+
+        +media-breakpoint-down(sm)
+            font-size: 1rem
+            text-align: center
+            line-height: 2
 
         h1
-            font-size: 2.15rem
             margin-bottom: 4.64rem
+            color: $invert-body-color
+
+            +media-breakpoint-down(sm)
+                font-size: 1.575rem
+
 
 .section[data-anchor="what-is-qla"]
     background: url(../images/backgrounds/what-is-qla.png) 50% 0/cover no-repeat
 
+    .holder
+        height: 14rem
+        padding-top: 6rem;
+
+    +media-breakpoint-down(xs)
+        .mockup
+            float: left
+            margin-left: -140px
+
 .section[data-anchor="benefits"]
-    background: url(../images/backgrounds/benefits.png) 50% 100%/100% no-repeat
+    background: url(../images/backgrounds/benefits.png) 50% 100% no-repeat
+
+    +media-breakpoint-up(xl)
+        background-size: 100%
+
+    +media-breakpoint-down(sm)
+        background-position: 85% 100%;
+        background-size: auto
+
+    .container-fluid
+        padding-bottom: 10rem
+
+    .diagram
+        $size: 154px
+
+        position: relative
+        width: $size
+        height: $size
+        margin: $size / 2 auto 0;
+        border: 3px dashed #bababa
+
+        span
+            $size: 110px
+
+            position: absolute
+            width: $size
+            height: $size
+            background-color: #e9e9e9
+            border-radius: $size / 2
+
+            &.top.right
+                top: -$size / 2
+                right: -$size / 2
+
+                i
+                    margin-left: -1.5rem
+                    font-size: 9rem
+
+            &.bottom.right
+                bottom: -$size / 2
+                right: -$size / 2
+
+                i
+                    margin: -1.4rem 0 0 -2.1rem
+                    font-size: 11rem
+
+            &.bottom.left
+                bottom: -$size / 2
+                left: -$size / 2
+
+                i
+                    margin-left: -1rem
+                    font-size: 7.5rem
+
+            &.top.left
+                top: -$size / 2
+                left: -$size / 2
+
+                i
+                    margin: -1rem 0 0 -2.1rem
+                    font-size: 11rem
+
+            i
+                float: left;
 
 .section[data-anchor="what-you-can-achive"]
     background-color: #1589cf
@@ -49,14 +135,20 @@ $mouse-separator: 6rem
         background: $secondary-cover
 
 
-.mouse
+.btn.mouse
     position: absolute
     bottom: 5rem
     right: 0
     left: 0
     width: 16rem
 
+    &:hover, &:focus
+        text-decoration: none
+
     .icon-mouse
         float: left
         margin: -2.5rem -1rem 0 0
         font-size: $mouse-separator
+
+    .icon-arrow-down
+        font-size: 4.5rem

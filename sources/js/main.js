@@ -1,9 +1,6 @@
-require([ 'fullPage', 'jquery', 'bootstrap'], function(fullpage, $) {
+require(['./modules/Fullpage', './modules/Sidebar', 'jquery'], function(Fullpage, Sidebar, $) {
     $(function() {
-        $('#fullpage').fullpage({
-            menu: '#menu',
-            resize: true,
-            verticalCentered: false
-        });
+        Fullpage.init();
+        Sidebar.init();
     });
 });

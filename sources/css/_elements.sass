@@ -9,5 +9,33 @@ html
     border-width: 1px
 
 button, .btn
+    position: relative
+
     &:focus
         border: 0
+
+    &.radius
+        padding: .5rem 1rem
+        border-radius: 2rem
+
+    .arrow-down
+        $size: .75rem
+
+        position: absolute;
+        bottom: -$size
+        left: 50%
+        width: 0
+        height: 0
+        margin-left: -$size
+        border-left: $size solid transparent
+        border-right: $size solid transparent
+        border-top: $size solid $brand-primary
+
+    &.btn-info .arrow-down
+        border-top-color: $brand-info
+
+h1, h2
+    font-size: 2.15rem
+
+    +media-breakpoint-down(sm)
+        font-size: 1.875rem
