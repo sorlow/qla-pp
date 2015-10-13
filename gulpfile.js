@@ -52,6 +52,7 @@ gulp.task('copyLibs', ['cleanLibs'], function () {
             'bower_components/requirejs/require.js',
             'bower_components/jquery/dist/jquery{,*}.{js,map}',
             'bower_components/fullpage.js/jquery.fullPage{,*}.{css,js}',
+            'bower_components/fullpage.js/vendors/jquery.slimscroll{,*}.{css,js}',
             'bower_components/bootstrap/dist/css/bootstrap{,*}.{css,map}',
             'bower_components/bootstrap/dist/js/bootstrap{,*}.{js,map}',
             'bower_components/animate.css/animate{,*}.css'

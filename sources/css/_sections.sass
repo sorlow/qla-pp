@@ -89,7 +89,7 @@ $mouse-separator: 6rem
                 top: -$size / 2
                 right: -$size / 2
 
-                i
+                .icon-tactick
                     margin-left: -1.5rem
                     font-size: 9rem
 
@@ -97,7 +97,7 @@ $mouse-separator: 6rem
                 bottom: -$size / 2
                 right: -$size / 2
 
-                i
+                .icon-clock
                     margin: -1.4rem 0 0 -2.1rem
                     font-size: 11rem
 
@@ -105,7 +105,7 @@ $mouse-separator: 6rem
                 bottom: -$size / 2
                 left: -$size / 2
 
-                i
+                .icon-light
                     margin-left: -1rem
                     font-size: 7.5rem
 
@@ -113,7 +113,7 @@ $mouse-separator: 6rem
                 top: -$size / 2
                 left: -$size / 2
 
-                i
+                .icon-settings
                     margin: -1rem 0 0 -2.1rem
                     font-size: 11rem
 
@@ -121,19 +121,139 @@ $mouse-separator: 6rem
                 float: left;
 
 .section[data-anchor="what-you-can-achive"]
-    background-color: #1589cf
+    $bg: #1589cf
+
+    color: $invert-body-color
+    background-color: $bg
+
+    .container-fluid
+        padding-bottom: 60px
+
+    .handle
+        position: relative
+        z-index: 1
+        padding: 2rem 0
+
+        +media-breakpoint-down(md)
+            background-color: rgba($bg, .8)
+            margin-left: -$col-space
+            margin-right: -$col-space
+            padding-left: $col-space * 2
+            padding-right: $col-space * 2
+
+    h2, h3
+        color: $invert-body-color
+
+    h2
+        +media-breakpoint-up(md)
+            padding: 3rem 0 0 6rem
+
+        +media-breakpoint-down(sm)
+            padding: 0 0 2rem $col-space * 1.5
+
+    .box
+        padding: 0 3rem 3rem 1rem
+
+        .icon
+            height: 100px
+            overflow: hidden
+
+            i
+                display: inline-block
+
+                &.icon-tactick
+                    margin: -1rem 0 0 -2rem
+                    font-size: 9rem
+
+                &.icon-clock
+                    margin: -1.5rem 0 0 -2.5rem
+                    font-size: 11rem
+
+                &.icon-light
+                    margin: -.5rem 0 0 -.75rem
+                    font-size: 7.5rem
+
+                &.icon-settings
+                    margin: -1rem 0 0 -1.5rem
+                    font-size: 11rem
 
     .mockup
         position: absolute
         left: 0;
         bottom: -390px
+        width: 100%;
+        max-width: 470px;
+
+    .bottom-buttons-shell
+        $bg: #0065a1
+
+        position: absolute
+        bottom: 0
+        right: 0
+        left: 0
+        background-color: $bg
+        border-bottom: 1px solid #3498d4
+
+        +media-breakpoint-down(md)
+            z-index: 2
+            background-color: darken($bg, 20%)
+
+.section[data-anchor="technology"]
+    .handle
+        padding: 4rem 0
+
+        +media-breakpoint-down(md)
+            background-color: rgba($body-bg, .8)
+            margin-left: -$col-space
+            margin-right: -$col-space
+            padding-left: $col-space * 2
+            padding-right: $col-space * 2
+
+    .holder
+        height: 18rem
+
+    .screens
+        width: 250px
+
+        i
+            float: left;
+
+            &.icon-monitor
+                font-size: 8rem
+                margin: -2rem 0 0 -2rem
+
+            &.icon-tablet
+                font-size: 6rem
+                margin: 0 0 0 -2rem
+
+            &.icon-mobile
+                font-size: 7rem
+                margin: -.45rem 0 0 -3.8rem
 
 .section[data-anchor="features"]
     background: url(../images/backgrounds/features.jpg) 50% 0/cover no-repeat
 
     .container-fluid
         background: $secondary-cover
+        font-size: 1.285rem
+        color: $invert-body-color
 
+        h2
+            margin-bottom: 4.64rem
+            color: $invert-body-color
+
+        ul
+            list-style: none
+            padding: 0
+            margin: 0
+
+            li
+                margin-bottom: 1.5rem
+
+                &:before
+                    float: left
+                    font-size: 2rem
+                    margin: -.25rem .75rem 0 0
 
 .btn.mouse
     position: absolute
@@ -150,5 +270,6 @@ $mouse-separator: 6rem
         margin: -2.5rem -1rem 0 0
         font-size: $mouse-separator
 
-    .icon-arrow-down
+    .icon-arrow-down,
+    .icon-arrow-up
         font-size: 4.5rem
