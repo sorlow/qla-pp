@@ -1,6 +1,7 @@
 body
     font-size: 1rem !important
     font-weight: $font-weight-root
+    overflow-x: hidden !important
 
 html
     min-width: $body-min-width
@@ -22,7 +23,7 @@ button, .btn
         $size: .75rem
 
         position: absolute;
-        bottom: -$size
+        bottom: -$size + .2
         left: 50%
         width: 0
         height: 0
@@ -31,8 +32,12 @@ button, .btn
         border-right: $size solid transparent
         border-top: $size solid $brand-primary
 
-    &.btn-info .arrow-down
-        border-top-color: $brand-info
+    &.btn-info
+        .arrow-down
+            border-top-color: $brand-info
+
+        &:hover .arrow-down
+            border-top-color: darken($brand-info, 10%)
 
 h1, h2
     font-size: 2.15rem

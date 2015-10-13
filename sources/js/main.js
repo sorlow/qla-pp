@@ -1,5 +1,5 @@
 require(['./modules/Fullpage', './modules/Sidebar', 'jquery'], function(Fullpage, Sidebar, $) {
-    $(function() {
+    $(function () {
         Fullpage.init();
         Sidebar.init();
     });

@@ -5,7 +5,8 @@ define(['fullPage', 'jquery'], function(fullpage, $) {
                 menu: '#menu',
                 resize: true,
                 verticalCentered: false,
-                scrollOverflow: false,
+                responsiveHeight: 830,
+                responsiveWidth: 990,
                 onLeave: function(index, nextIndex, direction) {
                     if (nextIndex === 3 || nextIndex === 4) {
                         $('[data-menuanchor="benefits"]').addClass('preactive');

@@ -7,13 +7,12 @@ $mouse-separator: 6rem
     .section-container
         display: table-cell
         vertical-align: middle
-        padding-top: $navbar-height;
         width: 100%
         height: 100%
         min-height: 500px
 
-        +media-breakpoint-down(sm)
-            padding-top: $mobile-navbar-height;
+        +media-breakpoint-up(md)
+            padding-top: $navbar-height;
 
         & > .handle
             max-width: 1280px
@@ -31,6 +30,7 @@ $mouse-separator: 6rem
         color: $invert-body-color
 
         +media-breakpoint-down(sm)
+            padding-top: $mobile-navbar-height;
             font-size: 1rem
             text-align: center
             line-height: 2
@@ -56,6 +56,8 @@ $mouse-separator: 6rem
             margin-left: -140px
 
 .section[data-anchor="benefits"]
+    position: relative
+    z-index: 2
     background: url(../images/backgrounds/benefits.png) 50% 100% no-repeat
 
     +media-breakpoint-up(xl)
@@ -66,7 +68,7 @@ $mouse-separator: 6rem
         background-size: auto
 
     .section-container
-        padding-bottom: 10rem
+        padding-bottom: 20rem
 
     .diagram
         $size: 154px
@@ -126,6 +128,14 @@ $mouse-separator: 6rem
 
     color: $invert-body-color
     background-color: $bg
+
+    +media-breakpoint-down(md)
+        margin-top: -12rem
+
+    +media-breakpoint-down(sm)
+        position: relative
+        z-index: 3
+        margin-top: -8rem
 
     .section-container
         padding-bottom: 60px
@@ -193,9 +203,12 @@ $mouse-separator: 6rem
 
         +media-breakpoint-down(md)
             z-index: 2
-            background-color: darken($bg, 20%)
 
 .section[data-anchor="technology"]
+    +media-breakpoint-down(sm)
+        position: relative
+        z-index: 4
+
     .section-container
         +media-breakpoint-down(md)
             position: relative
@@ -203,7 +216,10 @@ $mouse-separator: 6rem
             background-color: rgba($body-bg, .6)
 
         .handle
-            padding: 4rem 0
+            padding: 4rem 0 6rem
+
+            +media-breakpoint-down(md)
+                padding-bottom: 0
 
     .holder
         height: 18rem
@@ -233,6 +249,9 @@ $mouse-separator: 6rem
         background: $secondary-cover
         font-size: 1.285rem
         color: $invert-body-color
+
+        +media-breakpoint-down(sm)
+            padding-top: $mobile-navbar-height
 
         h2
             margin-bottom: 4.64rem
