@@ -4,12 +4,13 @@ $mouse-separator: 6rem
     display: table
     width: 100%
 
-    & > .container-fluid
+    .section-container
         display: table-cell
         vertical-align: middle
         padding-top: $navbar-height;
         width: 100%
         height: 100%
+        min-height: 500px
 
         +media-breakpoint-down(sm)
             padding-top: $mobile-navbar-height;
@@ -18,13 +19,13 @@ $mouse-separator: 6rem
             max-width: 1280px
             margin: 0 auto;
 
-    &.with-mouse > .container-fluid
+    &.with-mouse .section-container
         padding-bottom: $mouse-separator + 5
 
 .section[data-anchor="home"]
     background: url(../images/backgrounds/home.jpg) 50% 0/cover no-repeat
 
-    .container-fluid
+    .section-container
         background: $primary-cover
         font-size: 1.575rem
         color: $invert-body-color
@@ -64,7 +65,7 @@ $mouse-separator: 6rem
         background-position: 85% 100%;
         background-size: auto
 
-    .container-fluid
+    .section-container
         padding-bottom: 10rem
 
     .diagram
@@ -126,20 +127,16 @@ $mouse-separator: 6rem
     color: $invert-body-color
     background-color: $bg
 
-    .container-fluid
+    .section-container
         padding-bottom: 60px
 
-    .handle
-        position: relative
-        z-index: 1
-        padding: 2rem 0
-
         +media-breakpoint-down(md)
+            position: relative
+            z-index: 1
             background-color: rgba($bg, .8)
-            margin-left: -$col-space
-            margin-right: -$col-space
-            padding-left: $col-space * 2
-            padding-right: $col-space * 2
+
+        .handle
+            padding: 2rem 0
 
     h2, h3
         color: $invert-body-color
@@ -199,15 +196,14 @@ $mouse-separator: 6rem
             background-color: darken($bg, 20%)
 
 .section[data-anchor="technology"]
-    .handle
-        padding: 4rem 0
-
+    .section-container
         +media-breakpoint-down(md)
-            background-color: rgba($body-bg, .8)
-            margin-left: -$col-space
-            margin-right: -$col-space
-            padding-left: $col-space * 2
-            padding-right: $col-space * 2
+            position: relative
+            z-index: 1
+            background-color: rgba($body-bg, .6)
+
+        .handle
+            padding: 4rem 0
 
     .holder
         height: 18rem
@@ -233,7 +229,7 @@ $mouse-separator: 6rem
 .section[data-anchor="features"]
     background: url(../images/backgrounds/features.jpg) 50% 0/cover no-repeat
 
-    .container-fluid
+    .section-container
         background: $secondary-cover
         font-size: 1.285rem
         color: $invert-body-color
@@ -250,10 +246,10 @@ $mouse-separator: 6rem
             li
                 margin-bottom: 1.5rem
 
-                &:before
+                i
                     float: left
                     font-size: 2rem
-                    margin: -.25rem .75rem 0 0
+                    margin: 0 .75rem 0 0
 
 .btn.mouse
     position: absolute
