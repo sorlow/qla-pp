@@ -15,7 +15,7 @@ define(['./Overlay', 'jquery'], function(Overlay, $) {
                     that.show($target);
                 }
 
-                $('.modal-backdrop').click(function() {
+                $('.modal-backdrop, .collapse.modal').click(function() {
                     that.hide($target);
                 });
             });

@@ -55,7 +55,8 @@ gulp.task('copyLibs', ['cleanLibs'], function () {
             'bower_components/fullpage.js/vendors/jquery.slimscroll{,*}.{css,js}',
             'bower_components/bootstrap/dist/css/bootstrap{,*}.{css,map}',
             'bower_components/bootstrap/dist/js/bootstrap{,*}.{js,map}',
-            'bower_components/animate.css/animate{,*}.css'
+            'bower_components/animate.css/animate{,*}.css',
+            'bower_components/jquery.fitvids/jquery.fitvids.js'
         ])
         .pipe(gulp.dest('public/libs'));
 

@@ -4,12 +4,14 @@ require.config({
     paths: {
         'jquery': '../libs/jquery.min',
         'fullPage': '../libs/jquery.fullPage.min',
-        'bootstrap': '../libs/bootstrap.min'
+        'bootstrap': '../libs/bootstrap.min',
+        'fitVids': '../libs/jquery.fitvids'
     },
     shim: {
         'fullPage': ['jquery'],
         'slimscroll': ['jquery'],
-        'bootstrap': ['jquery']
+        'bootstrap': ['jquery'],
+        'fitVids': ['jquery']
     },
     deps: ['main']
 });
